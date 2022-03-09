@@ -55,8 +55,16 @@ class TestGenreService:
         assert genre is None
 
     def test_update(self):
-        data = {'id': 4,
+        data = {'id': 1,
                 'name': 'Test_4'}
         genre = self.genre_service.update(data)
+
+        assert genre.id is not None
+
+    def test_partially_update(self):
+        data = {"id": 1,
+                "name": "Test_5"}
+
+        genre = self.genre_service.partially_update(data)
 
         assert genre.id is not None

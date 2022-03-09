@@ -62,3 +62,18 @@ class TestMovieService:
         movie = self.movie_service.update(data)
 
         assert movie.id is not None
+
+    def test_partially_update(self):
+        data = {"id": 1,
+                "title": "Test_5",
+                "description": "Desc_test_5",
+                "trailer": "Trailer_test_5",
+                "year": 2022,
+                "rating": "Rating_test_5",
+                "genre_id": 10,
+                "director_id": 50
+                }
+
+        movie = self.movie_service.partially_update(data)
+
+        assert movie.id is not None

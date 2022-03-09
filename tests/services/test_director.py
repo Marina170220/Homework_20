@@ -55,8 +55,16 @@ class TestDirectorService:
         assert director is None
 
     def test_update(self):
-        data = {'id': 4,
+        data = {'id': 1,
                 'name': 'Test_4'}
         director = self.director_service.update(data)
+
+        assert director.id is not None
+
+    def test_partially_update(self):
+        data = {"id": 1,
+                "name": "Test_5"}
+
+        director = self.director_service.partially_update(data)
 
         assert director.id is not None

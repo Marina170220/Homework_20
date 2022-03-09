@@ -18,10 +18,10 @@ class DirectorService:
         return self.dao.update(director_d)
 
     def partially_update(self, director_d):
-        director = self.get_one(director_d["id"])
+        director = self.get_one(director_d.get("id"))
         if "name" in director_d:
             director.name = director_d.get("name")
-        self.dao.update(director)
+        return self.dao.update(director)
 
     def delete(self, rid):
         self.dao.delete(rid)

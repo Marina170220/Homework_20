@@ -21,7 +21,7 @@ class GenreService:
         genre = self.get_one(genre_d["id"])
         if "name" in genre_d:
             genre.name = genre_d.get("name")
-        self.dao.update(genre)
+        return self.dao.update(genre)
 
     def delete(self, rid):
         self.dao.delete(rid)
